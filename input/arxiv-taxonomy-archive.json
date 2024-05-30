@@ -1,0 +1,444 @@
+{
+    "acc-phys": {
+        "end_date": [
+            1996,
+            9,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Accelerator Physics",
+        "start_date": [
+            1994,
+            11,
+            1
+        ]
+    },
+    "adap-org": {
+        "end_date": [
+            1999,
+            12,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Adaptation, Noise, and Self-Organizing Systems",
+        "start_date": [
+            1993,
+            3,
+            1
+        ]
+    },
+    "alg-geom": {
+        "end_date": [
+            1997,
+            12,
+            1
+        ],
+        "in_group": "grp_math",
+        "name": "Algebraic Geometry",
+        "start_date": [
+            1992,
+            2,
+            1
+        ]
+    },
+    "ao-sci": {
+        "end_date": [
+            1996,
+            9,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Atmospheric-Oceanic Sciences",
+        "start_date": [
+            1995,
+            2,
+            1
+        ]
+    },
+    "astro-ph": {
+        "in_group": "grp_physics",
+        "name": "Astrophysics",
+        "start_date": [
+            1992,
+            4,
+            1
+        ]
+    },
+    "atom-ph": {
+        "end_date": [
+            1996,
+            9,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Atomic, Molecular and Optical Physics",
+        "start_date": [
+            1995,
+            9,
+            1
+        ]
+    },
+    "bayes-an": {
+        "end_date": [
+            1996,
+            11,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Bayesian Analysis",
+        "start_date": [
+            1995,
+            6,
+            1
+        ]
+    },
+    "chao-dyn": {
+        "end_date": [
+            1999,
+            12,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Chaotic Dynamics",
+        "start_date": [
+            1993,
+            1,
+            1
+        ]
+    },
+    "chem-ph": {
+        "end_date": [
+            1996,
+            9,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Chemical Physics",
+        "start_date": [
+            1994,
+            3,
+            1
+        ]
+    },
+    "cmp-lg": {
+        "end_date": [
+            1998,
+            9,
+            1
+        ],
+        "in_group": "grp_cs",
+        "name": "Computation and Language",
+        "start_date": [
+            1994,
+            4,
+            1
+        ]
+    },
+    "comp-gas": {
+        "end_date": [
+            1999,
+            12,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Cellular Automata and Lattice Gases",
+        "start_date": [
+            1993,
+            2,
+            1
+        ]
+    },
+    "cond-mat": {
+        "in_group": "grp_physics",
+        "name": "Condensed Matter",
+        "start_date": [
+            1992,
+            4,
+            1
+        ]
+    },
+    "cs": {
+        "in_group": "grp_cs",
+        "name": "Computer Science",
+        "start_date": [
+            1993,
+            1,
+            1
+        ]
+    },
+    "dg-ga": {
+        "end_date": [
+            1997,
+            12,
+            1
+        ],
+        "in_group": "grp_math",
+        "name": "Differential Geometry",
+        "start_date": [
+            1994,
+            6,
+            1
+        ]
+    },
+    "econ": {
+        "in_group": "grp_econ",
+        "name": "Economics",
+        "start_date": [
+            2017,
+            9,
+            1
+        ]
+    },
+    "eess": {
+        "in_group": "grp_eess",
+        "name": "Electrical Engineering and Systems Science",
+        "start_date": [
+            2017,
+            9,
+            1
+        ]
+    },
+    "funct-an": {
+        "end_date": [
+            1997,
+            12,
+            1
+        ],
+        "in_group": "grp_math",
+        "name": "Functional Analysis",
+        "start_date": [
+            1992,
+            4,
+            1
+        ]
+    },
+    "gr-qc": {
+        "in_group": "grp_physics",
+        "name": "General Relativity and Quantum Cosmology",
+        "start_date": [
+            1992,
+            7,
+            1
+        ]
+    },
+    "hep-ex": {
+        "in_group": "grp_physics",
+        "name": "High Energy Physics - Experiment",
+        "start_date": [
+            1994,
+            4,
+            1
+        ]
+    },
+    "hep-lat": {
+        "in_group": "grp_physics",
+        "name": "High Energy Physics - Lattice",
+        "start_date": [
+            1992,
+            2,
+            1
+        ]
+    },
+    "hep-ph": {
+        "in_group": "grp_physics",
+        "name": "High Energy Physics - Phenomenology",
+        "start_date": [
+            1992,
+            3,
+            1
+        ]
+    },
+    "hep-th": {
+        "in_group": "grp_physics",
+        "name": "High Energy Physics - Theory",
+        "start_date": [
+            1991,
+            8,
+            1
+        ]
+    },
+    "math": {
+        "in_group": "grp_math",
+        "name": "Mathematics",
+        "start_date": [
+            1992,
+            2,
+            1
+        ]
+    },
+    "math-ph": {
+        "in_group": "grp_physics",
+        "name": "Mathematical Physics",
+        "start_date": [
+            1996,
+            9,
+            1
+        ]
+    },
+    "mtrl-th": {
+        "end_date": [
+            1996,
+            9,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Materials Theory",
+        "start_date": [
+            1994,
+            11,
+            1
+        ]
+    },
+    "nlin": {
+        "in_group": "grp_physics",
+        "name": "Nonlinear Sciences",
+        "start_date": [
+            1993,
+            1,
+            1
+        ]
+    },
+    "nucl-ex": {
+        "in_group": "grp_physics",
+        "name": "Nuclear Experiment",
+        "start_date": [
+            1994,
+            12,
+            1
+        ]
+    },
+    "nucl-th": {
+        "in_group": "grp_physics",
+        "name": "Nuclear Theory",
+        "start_date": [
+            1992,
+            10,
+            1
+        ]
+    },
+    "patt-sol": {
+        "end_date": [
+            1999,
+            12,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Pattern Formation and Solitons",
+        "start_date": [
+            1993,
+            2,
+            1
+        ]
+    },
+    "physics": {
+        "in_group": "grp_physics",
+        "name": "Physics",
+        "start_date": [
+            1996,
+            10,
+            1
+        ]
+    },
+    "plasm-ph": {
+        "end_date": [
+            1996,
+            9,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Plasma Physics",
+        "start_date": [
+            1995,
+            9,
+            1
+        ]
+    },
+    "q-alg": {
+        "end_date": [
+            1997,
+            12,
+            1
+        ],
+        "in_group": "grp_math",
+        "name": "Quantum Algebra and Topology",
+        "start_date": [
+            1994,
+            12,
+            1
+        ]
+    },
+    "q-bio": {
+        "in_group": "grp_q-bio",
+        "name": "Quantitative Biology",
+        "start_date": [
+            2003,
+            9,
+            1
+        ]
+    },
+    "q-fin": {
+        "in_group": "grp_q-fin",
+        "name": "Quantitative Finance",
+        "start_date": [
+            2008,
+            12,
+            1
+        ]
+    },
+    "quant-ph": {
+        "in_group": "grp_physics",
+        "name": "Quantum Physics",
+        "start_date": [
+            1994,
+            12,
+            1
+        ]
+    },
+    "solv-int": {
+        "end_date": [
+            1999,
+            12,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Exactly Solvable and Integrable Systems",
+        "start_date": [
+            1993,
+            4,
+            1
+        ]
+    },
+    "stat": {
+        "in_group": "grp_stat",
+        "name": "Statistics",
+        "start_date": [
+            2007,
+            4,
+            1
+        ]
+    },
+    "supr-con": {
+        "end_date": [
+            1996,
+            9,
+            1
+        ],
+        "in_group": "grp_physics",
+        "name": "Superconductivity",
+        "start_date": [
+            1994,
+            11,
+            1
+        ]
+    },
+    "test": {
+        "in_group": "grp_test",
+        "is_test": true,
+        "name": "Test",
+        "start_date": [
+            1995,
+            2,
+            1
+        ]
+    }
+}
