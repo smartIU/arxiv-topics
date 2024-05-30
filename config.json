@@ -1,0 +1,103 @@
+{
+  "database": "./database/arxiv.db",
+  
+  "input_snapshot": "./input/arxiv-metadata-oai-snapshot.json",
+  "input_taxonomy": ["./input/arxiv-taxonomy-archive.json", "./input/arxiv-taxonomy-categories.json"],
+  "input_update_date": "./input/snapshot_update_date.txt",  
+  
+  "pre_year_min": 2000,  
+  
+  "embeddings_model": "./models/embedding/BAAI_bge-base-en-v1.5",
+  "embeddings_precision": "ubinary",
+  "embeddings_chunk_size": 5000,
+  
+  "subset_archive_max_count": 200000,
+  "subset_category_min_count": 12000,  
+  "subset_bert_params":"subsets",
+  
+  "llm_model": "./models/llm/Meta-Llama-3-8B-Instruct-Q4_K_M.gguf",
+  "llm_prompt": "Q: A topic relates to the following articles:\n [DOCUMENTS]. \nAnd the topic relates to the following keywords: [KEYWORDS]. \nBased on this information, what is the best fitting label of the topic with less than six words? \nA: ",
+  "llm_stopwords": ["Q:", "Q2:", "\n", "A:", "A)", "B:", "B)", "1.", "1)", "Question:", "Answer:", " or ", "_"],
+  "llm_diversity": 0.16,
+	
+  "transform_chunk_size": 25000,
+   
+  "train_models":{
+	  "subset_outliers":{
+		  "hierarchy":-1,
+		  "model_filter":"outliers",
+		  "filter_value":-1,
+		  "percent_of_papers": 100,
+		  "bert_params":"subsets",
+		  "overwrite":false
+	  },
+	  "arxiv_0":{
+		  "hierarchy":0,
+		  "model_filter":"hierarchy",
+		  "filter_value":-1,
+		  "percent_of_papers": 36,
+		  "bert_params":"arxiv_0",
+		  "overwrite":false
+	  }
+  },
+  
+  "agg_models":{
+	  "arxiv_1":{
+		  "hierarchy":1,
+		  "parent_model":"arxiv_0",		  
+		  "max_cluster_distance":1.00,		
+		  "excl_outliers":true,
+		  "overwrite":false
+	  },
+	  "test":{
+		  "hierarchy":-2,
+		  "parent_model":"subset_nlin",		  
+		  "max_cluster_distance":0.38,		 
+		  "excl_outliers":true,
+		  "overwrite":false
+	  }
+  },
+  
+  "bert_params":{
+	  "subsets":{
+		  "keyword_min_freq":1,
+		  "keyword_diversity":0.32,
+		  "top_n_words": 10,
+		  "ngram_start": 1,
+		  "ngram_end": 2,		  
+		  "umap_parametric": false,
+		  "umap_neighbors": 24,
+		  "umap_components": 24,
+		  "umap_min_dist": 0.001,
+		  "umap_random_state": true,
+		  "hdbscan_cluster_size": [256,512,768,1024],
+		  "hdbscan_sample_size": [8,16,32,64],
+		  "hdbscan_min_clusters": 3,
+		  "hdbscan_predict": true,		
+		  "generate_labels": true,		  
+		  "reduce_topics": false,
+		  "outlier_threshold": 1.0,
+		  "verbose": true
+	  },
+	  "arxiv_0":{
+		  "keyword_min_freq":1,
+		  "keyword_diversity":0.32,
+		  "top_n_words": 12,
+		  "ngram_start": 1,
+		  "ngram_end": 2,		  
+		  "umap_parametric": false,
+		  "umap_neighbors": 24,
+		  "umap_components": 24,
+		  "umap_min_dist": 0.001,
+		  "umap_random_state": false,
+		  "hdbscan_cluster_size": [224,256,288,320,352],
+		  "hdbscan_sample_size": [16,24,32],
+		  "hdbscan_min_clusters": 360,
+		  "hdbscan_predict": true,
+		  "generate_labels": true,
+		  "reduce_topics": false,
+		  "outlier_threshold": 1.0,
+		  "verbose": true
+	  }
+  }
+}
