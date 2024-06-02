@@ -333,7 +333,10 @@ class Pipeline:
           
           if heatmap:
                print('creating heatmap')
-    
+               
+               # force using c-TF-IDFs
+               topic_model.topic_embeddings_ = None
+               
                fig = topic_model.visualize_heatmap(custom_labels=True)
                
                fig.write_html(f'./output/{model}_heatmap.html')
