@@ -76,9 +76,9 @@ class Pipeline:
          
          ## LLM
          
-         #chained "Main" representation model plus aspect needs a fix in bertopic module - see https://github.com/MaartenGr/BERTopic/pull/2021
+         #chained "Main" representation model plus aspect is not supported
          #self.representation_model = [KeyBERTInspired(top_n_words=bert_params.top_n_words), MaximalMarginalRelevance(diversity=bert_params.keyword_diversity)]
-         self.representation_model = MaximalMarginalRelevance(diversity=bert_params.keyword_diversity)                     
+         self.representation_model = MaximalMarginalRelevance(diversity=bert_params.keyword_diversity)
 
          #only set LLM params, init model later
          self.generate_labels = bert_params.generate_labels
