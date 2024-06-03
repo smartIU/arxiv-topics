@@ -5,6 +5,7 @@ import sys
 import nltk.data
 from ast import literal_eval
 from dateutil import parser
+from pathlib import Path
 
 from arxiv_topics.config import Config
 from arxiv_topics.db import DB
@@ -168,11 +169,14 @@ def write_chunk_to_sql(chunk, db, year_min, last_update):
 if __name__ == "__main__":
     """ Read in arXiv dataset, preprocess data and save to sqlite database """
 
-    config = Config()
-
-    db = DB(config.database)
+    config = Config()    
     
     print('Assuring database')
+    db_path = Path(config.database)
+    if len(db_path.parents) > 0:
+        db_path.parents[0].mkdir(parents=True, exist_ok=True)
+    
+    db = DB(config.database)
     db.assure_database()
     
     last_update = '1990-01-01'
