@@ -11,6 +11,7 @@ from collections import Counter
 from hdbscan import HDBSCAN
 from joblib import Memory
 from llama_cpp import Llama
+from pathlib import Path
 from sklearn.feature_extraction.text import CountVectorizer, ENGLISH_STOP_WORDS
 from typing import List, Tuple
 from umap import UMAP
@@ -76,9 +77,9 @@ class Pipeline:
          
          ## LLM
          
-         #chained "Main" representation model plus aspect is not supported
+         #chained "Main" representation model plus aspect needs a fix in bertopic module - see https://github.com/MaartenGr/BERTopic/pull/2021
          #self.representation_model = [KeyBERTInspired(top_n_words=bert_params.top_n_words), MaximalMarginalRelevance(diversity=bert_params.keyword_diversity)]
-         self.representation_model = MaximalMarginalRelevance(diversity=bert_params.keyword_diversity)
+         self.representation_model = MaximalMarginalRelevance(diversity=bert_params.keyword_diversity)                     
 
          #only set LLM params, init model later
          self.generate_labels = bert_params.generate_labels
@@ -165,6 +166,8 @@ class Pipeline:
                model_path = f'./output/subset/{model.replace("subset_","")}.pkl'
           else:
                model_path = f'./output/{model}.pkl'
+        
+          Path(model_path).parents[0].mkdir(parents=True, exist_ok=True)
 
           topic_model.save(model_path)
           
@@ -331,12 +334,14 @@ class Pipeline:
      def evaluate_model(cls, topic_model, model, abstracts=None, heatmap=True, barchart=False, hierarchy=False):
           """ create various visualizations from the BERTopic model to subjectively evaluate performance """
           
+          Path('./output').mkdir(exist_ok=True)
+          
           if heatmap:
                print('creating heatmap')
-               
+    
                # force using c-TF-IDFs
                topic_model.topic_embeddings_ = None
-               
+        
                fig = topic_model.visualize_heatmap(custom_labels=True)
                
                fig.write_html(f'./output/{model}_heatmap.html')
