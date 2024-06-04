@@ -17,7 +17,12 @@ Further optimizations are definitely needed to improve the computation speed tho
 
 - Clone the repository
 - Install Python 3.10+ for your platform from https://www.python.org/downloads/
-- Install Llama-cpp-python according to your hardware: https://pypi.org/project/llama-cpp-python/
+- For building hdbscan and llama, a C++ compiler is required  
+   Linux: gcc or clang  
+   Windows: Visual Studio Build Tools or MinGW  
+   MacOS: Xcode
+- To utilize your GPU for the SentenceTransformer, install pytorch+CUDA from https://pytorch.org/get-started/locally/
+- Install Llama-cpp-python for your hardware from https://pypi.org/project/llama-cpp-python/
 - Install the rest of the dependencies from the requirements.txt
    ```terminal
    pip install -r requirements.txt
@@ -26,10 +31,9 @@ Further optimizations are definitely needed to improve the computation speed tho
    ```terminal
    python -m nltk.downloader punkt
    ```
-- Register with kaggle and download the latest arXiv dataset from https://www.kaggle.com/datasets/Cornell-University/arxiv into the "input" subfolder
 - Choose a suitable Sentence Transformer and LLM, and if necessary update the values for "embeddings_model" and "llm_model" in the config.json accordingly.  
-   If you intend to use the default config, the models from https://huggingface.co/BAAI/bge-base-en-v1.5/tree/main and https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/tree/main need to be downloaded into the appropriate subfolders.
-   For the Sentence Transformer you could also put only the model identifier in the config instead, to have it downloaded automatically from Hugging Face. But, note that this will lead to checking online for an update every time you create embeddings.
+   If you intend to use the default config, the models from https://huggingface.co/BAAI/bge-base-en-v1.5/tree/main and https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/tree/main need to be downloaded into the appropriate subfolders. For the Sentence Transformer you could also put only the model identifier in the config instead, to have it downloaded automatically from Hugging Face. But, note that this will lead to checking online for an update every time you create embeddings.
+- Register with kaggle and download the latest arXiv dataset from https://www.kaggle.com/datasets/Cornell-University/arxiv into the "input" subfolder
 
 ## Setup for the visualization of the results only, as obtained with the default config for version 178 of the arXiv dataset
 
@@ -80,11 +84,23 @@ Notable configurations include:
    max_cluster_distance: the maximum distance between topics to be merged together in the resulting model
 - bert_params: various parameters for the different BERTopic components  
    See the documentations for BERTopic, UMAP and HDBSCAN for understanding their respective use.  
-   Notably, the adapted BERTopic pipeline allows you to define a whole range of min_cluster_sizes and min_sample_sizes to be used by HDBSCAN, and the one with the highest DBCV score will be chosen automatically.  
-   Also, a new hyperparameter "hdbscan_min_clusters" was added, which allows setting a minimum number of resulting clusters when using above ranges.
+   Notably, the adapted BERTopic pipeline allows you to define a whole range of min_cluster_sizes and min_sample_sizes to be used by HDBSCAN, and the one with the highest DBCV score will be chosen automatically. Also, a new hyperparameter "hdbscan_min_clusters" was added, which allows setting a minimum number of resulting clusters when using the ranges.
 
 You can add any number of additional entries to train_models, agg_models (and bert_params accordingly) to train models in batches.
 Set "generate_labels" to false in the bert_params to exclude the LLM and improve performance for hyperparameter tuning.
+
+## FAQ
+
+- You're using quantized embeddings and encounter an error in method "search_closure" when trying to load a pickled BERTopic model?
+  Until the pynndescent module gets an official update, you'll have to manually apply the fix from https://github.com/lmcinnes/pynndescent/pull/240.
+  Download https://github.com/lmcinnes/pynndescent/blob/master/pynndescent/pynndescent_.py and replace the one throwing the error. 
+
+- You want to update your model with a new version of the arXiv dataset?
+  Simply run steps 1 and 2 again to import new papers and create their embeddings. This will not override your existing data.
+  Then run steps 6 and/or 7 to assign the new papers to the exisiting topics, and finally recompute statistics with step 9.
+
+- You want to restart the whole process?
+  Delete arxiv.db in the "database" folder as well as snapshot_update_date.txt in the "input" folder.
 
 ### Disclaimer
 
