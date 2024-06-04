@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy
 import gc
 
 from arxiv_topics.config import Config
