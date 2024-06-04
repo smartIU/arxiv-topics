@@ -48,13 +48,6 @@
 		  "max_cluster_distance":1.00,		
 		  "excl_outliers":true,
 		  "overwrite":false
-	  },
-	  "test":{
-		  "hierarchy":-2,
-		  "parent_model":"subset_nlin",		  
-		  "max_cluster_distance":0.38,		 
-		  "excl_outliers":true,
-		  "overwrite":false
 	  }
   },
   
