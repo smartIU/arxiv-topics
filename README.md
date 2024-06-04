@@ -43,7 +43,7 @@ Further optimizations are definitely needed to improve the computation speed tho
    ```terminal
    pip install dash statsmodels
    ```
-- Download the trimmed down database (without abstracts, embeddings and subsets) from the release into the "database" subfolder
+- Download and unzip the trimmed down database (without abstracts, embeddings and subsets) from the release
 
 ## Usage
 
