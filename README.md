@@ -35,7 +35,7 @@ Further optimizations are definitely needed to improve the computation speed tho
    If you intend to use the default config, the models from https://huggingface.co/BAAI/bge-base-en-v1.5/tree/main and https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/tree/main need to be downloaded into the appropriate subfolders. For the Sentence Transformer you could also put only the model identifier in the config instead, to have it downloaded automatically from Hugging Face. But, note that this will lead to checking online for an update every time you create embeddings.
 - Register with kaggle and download the latest arXiv dataset from https://www.kaggle.com/datasets/Cornell-University/arxiv into the "input" subfolder
 
-## Setup for the visualization of the results only, as obtained with the default config for version 178 of the arXiv dataset
+## Setup for the visualization of precomputed results only
 
 - Clone the repository
 - Install Python 3.10+ for your platform from https://www.python.org/downloads/
@@ -43,7 +43,7 @@ Further optimizations are definitely needed to improve the computation speed tho
    ```terminal
    pip install dash statsmodels
    ```
-- Download and unzip the trimmed down database (without abstracts, embeddings and subsets) from the release
+- Download and unzip a trimmed down database (without abstracts, embeddings and subsets) from the releases
 
 ## Usage
 
