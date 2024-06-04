@@ -91,15 +91,15 @@ Set "generate_labels" to false in the bert_params to exclude the LLM and improve
 
 ## FAQ
 
-- You're using quantized embeddings and encounter an error in method "search_closure" when trying to load a pickled BERTopic model?
+- You're using quantized embeddings and encounter an error in method "search_closure" when trying to load a pickled BERTopic model?  
   Until the pynndescent module gets an official update, you'll have to manually apply the fix from https://github.com/lmcinnes/pynndescent/pull/240.
   Download https://github.com/lmcinnes/pynndescent/blob/master/pynndescent/pynndescent_.py and replace the one throwing the error. 
 
-- You want to update your model with a new version of the arXiv dataset?
+- You want to update your model with a new version of the arXiv dataset?  
   Simply run steps 1 and 2 again to import new papers and create their embeddings. This will not override your existing data.
   Then run steps 6 and/or 7 to assign the new papers to the exisiting topics, and finally recompute statistics with step 9.
 
-- You want to restart the whole process?
+- You want to restart the whole process?  
   Delete arxiv.db in the "database" folder as well as snapshot_update_date.txt in the "input" folder.
 
 ### Disclaimer
